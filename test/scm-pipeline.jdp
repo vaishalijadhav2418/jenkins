@@ -12,19 +12,17 @@ pipeline {
         }
         stage('Build Stage') {
             steps {
-                sh 'mvn clean package '
+                sh '/opt/maven/bin/mvn clean package '
                 echo 'Build Stage succeed'
             }
         }
-
-
         
         stage('Test stage') {
              steps {
                  echo 'Testing done'
              }
         }
-        
+    
         
         stage('Deploy Stage') {
             steps {
