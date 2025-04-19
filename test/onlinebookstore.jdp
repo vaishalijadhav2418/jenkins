@@ -20,7 +20,12 @@ pipeline {
         
         stage('Test stage') {
              steps {       
-            sh '''               
+            sh ''' 
+            echo "Switching to Java 17 for Sonar analysis"
+            export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+            export PATH=$JAVA_HOME/bin:$PATH
+            java -version
+
                 mvn sonar:sonar \
               -Dsonar.projectKey=onlinebookstore \
               -Dsonar.host.url=http://65.2.129.155:9000 \
