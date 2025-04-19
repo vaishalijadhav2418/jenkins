@@ -10,12 +10,14 @@ pipeline {
                 echo 'Pull stage succeed'
             }
         }
-        stage('Build Stage') {
-            steps {
-                sh '/opt/apache-maven-3.9.9/bin/mvn clean package'
-                echo 'Build Stage succeed'
-            }
-        }
+       stage('Build Stage') {
+    agent { label 'node' } // specific to this stage
+    steps {
+        sh '/opt/apache-maven-3.9.9/bin/mvn clean package'
+        echo 'Build Stage succeeded'
+    }
+}
+
         stage('Test') {
             steps {
                 echo 'TEST'
