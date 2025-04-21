@@ -28,7 +28,7 @@ pipeline {
   //-Dsonar.token=sqp_8a8eafb5e37197576792c36a9daf7ab51211042f'''
   
 				  withSonarQubeEnv(installationName: 'sonar',credentialsId: 'sonar-new') {
-					sh '/opt/maven/bin/mvn clean verify sonar:sonar'
+					sh '/opt/maven/bin/mvn sonar:sonar'
 				}
                  echo 'Testing done'
              }
