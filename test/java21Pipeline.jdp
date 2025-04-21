@@ -30,8 +30,12 @@ pipeline {
 				  withSonarQubeEnv(installationName: 'sonar',credentialsId: 'sonar-new') {
 					sh '/opt/maven/bin/mvn sonar:sonar \
 					-Dsonar.projectKey=onlinebookstore'
-				}
+				}	
                  echo 'Testing done'
+
+		timeout(time: 10, unit: 'MINUTES') {
+	            waitForQualityGate abortPipeline: true
+	        }
              }
         }
     
