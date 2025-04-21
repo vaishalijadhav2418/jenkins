@@ -21,7 +21,7 @@ pipeline {
         stage('Test stage') {
              steps {       
             sh ''' 
-            mvn clean verify sonar:sonar \
+            /opt/maven/bin/mvn clean verify sonar:sonar \
   -Dsonar.projectKey=onlinebookstore \
   -Dsonar.projectName='onlinebookstore' \
   -Dsonar.host.url=http://65.2.31.194:9000 \
