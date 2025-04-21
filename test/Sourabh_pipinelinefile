@@ -43,6 +43,7 @@ pipeline {
         
         stage('Deploy Stage') {
             steps {
+                deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://172.31.17.134:8080')], contextPath: '/onlinebookstore', war: '**/*.war'
                 echo 'Deployment Done '
             }
         }
