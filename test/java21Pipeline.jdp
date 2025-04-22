@@ -5,9 +5,9 @@ pipeline {
     stages {
         stage('Pull Stage') {
             steps {
-                git 'https://github.com/sosa1111/onlinebookstore_Source_code.git'
-                sh '''ls'''
-                sh 'pwd'
+                sh '''git \'https://github.com/vaishalijadhav2418/onlinebookstore_Source_code.git\'
+                 ls
+                 pwd'''
                 echo 'Pull stage succeed'
             }
         }
